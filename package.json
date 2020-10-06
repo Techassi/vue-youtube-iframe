@@ -23,9 +23,6 @@
     ],
     "author": "Techassi",
     "license": "MIT",
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
-    },
     "bugs": {
         "url": "https://github.com/Techassi/vue-youtube-iframe/issues"
     },
