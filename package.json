@@ -1,6 +1,6 @@
 {
     "name": "@techassi/vue-youtube-iframe",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "This plugin makes it easy to integrate the YouTube Iframe API into your Vue app. This plugin is Vue V3 compatible.",
     "main": "lib/vue-youtube-iframe.umd.js",
     "module": "lib/vue-youtube-iframe.esm.js",
@@ -13,7 +13,7 @@
         "url": "git+https://github.com/Techassi/vue-youtube-iframe.git"
     },
     "files": [
-        "lib"
+        "/lib"
     ],
     "keywords": [
         "vue",
