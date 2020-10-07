@@ -50,9 +50,15 @@ const player = {
                     events: {
                         onReady: (event) => {
                             const p = event.target;
-                            if (playerParameters.autoplay === 1) {
+                            if (
+                                playerParameters.autoplay !== 'undefined' &&
+                                playerParameters.autoplay === 1
+                            ) {
                                 p.mute();
-                                if (playerParameters?.start !== 0) {
+                                if (
+                                    playerParameters.start !== 'undefined' &&
+                                    playerParameters.start !== 0
+                                ) {
                                     p.seekTo(playerParameters.start);
                                 } else {
                                     p.playVideo();
