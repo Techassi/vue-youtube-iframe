@@ -1,6 +1,6 @@
 {
     "name": "@techassi/vue-youtube-iframe",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "This plugin makes it easy to integrate the YouTube Iframe API into your Vue app. This plugin is Vue V3 compatible.",
     "main": "lib/vue-youtube-iframe.umd.js",
     "module": "lib/vue-youtube-iframe.esm.js",
@@ -31,7 +31,6 @@
         "vue": "^3.0.0"
     },
     "devDependencies": {
-        "@rollup/plugin-buble": "^0.21.3",
         "eslint": "^7.10.0",
         "eslint-config-airbnb-base": "^14.2.0",
         "eslint-config-prettier": "^6.12.0",

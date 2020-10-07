@@ -47,11 +47,20 @@ createApp(App).use(VueYouTubeIframe).mount('#app');
         :video-id="YT_VIDEO_ID"
         :player-width="WIDTH"
         :player-height="HEIGHT"
+        :no-cookie="TRUE / FALSE"
         :player-parameters="YT_PLAYER_PARAMS"
         @EVENT="CALLBACK"
     ></youtube-iframe>
 </template>
 ```
+
+#### Available props
+
+-   `:videoId / :video-id`: Specify the YT video id (e.g. `dQw4w9WgXcQ`)
+-   `:playerWidth / :player-width`: Specify the player's width in pixels
+-   `:playerHeight / :player-height`: Specify the player's height in pixels
+-   `:noCookie / :no-cookie`: If set to `true` the host will be set to `https://www.youtube-nocookie.com`
+-   `:playerParameters / :player-parameters`: Set player parameters, see [here](#available-player-parameters)
 
 #### Available player parameters
 

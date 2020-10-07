@@ -1,5 +1,3 @@
-// import buble from '@rollup/plugin-buble';
-
 const { version } = require('./package.json');
 
 const banner = `// Copyright © ${new Date().getFullYear()}-present Techassi
@@ -29,5 +27,4 @@ export default {
             },
         },
     ],
-    // plugins: [buble()],
 };

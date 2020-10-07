@@ -24,6 +24,10 @@ const player = {
             type: String,
             default: '',
         },
+        noCookie: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
@@ -39,14 +43,18 @@ const player = {
         const { playerHeight, playerWidth, playerParameters, videoId } = this;
 
         manager.register((factory, uid) => {
+            const host = this.noCookie
+                ? 'https://www.youtube-nocookie.com'
+                : 'https://www.youtube.com';
             this.elementId = uid;
+
             nextTick().then(() => {
                 this.player = new factory.Player(this.elementId, {
                     width: playerWidth,
                     height: playerHeight,
                     ...playerParameters,
                     videoId,
-                    host: 'https://www.youtube.com',
+                    host,
                     events: {
                         onReady: (event) => {
                             const p = event.target;
