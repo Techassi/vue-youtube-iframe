@@ -7,13 +7,13 @@ This plugin makes it easy to integrate the YouTube Iframe API into your Vue app.
 ### Installation
 
 ```shell
-npm install vue-youtube-iframe --save
+npm install @techassi/vue-youtube-iframe --save
 ```
 
 or
 
 ```shell
-yarn add vue-youtube-iframe
+yarn add @techassi/vue-youtube-iframe
 ```
 
 ### Basic usage
