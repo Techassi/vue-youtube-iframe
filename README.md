@@ -24,7 +24,7 @@ yarn add @techassi/vue-youtube-iframe
 import { createApp } from 'vue';
 import App from './App.vue';
 
-import VueYouTubeIframe from 'vue-youtube-iframe';
+import VueYouTubeIframe from '@techassi/vue-youtube-iframe';
 
 createApp(App).use(VueYouTubeIframe).mount('#app');
 ```
