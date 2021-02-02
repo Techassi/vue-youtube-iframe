@@ -1,20 +1,21 @@
+import typescript from '@rollup/plugin-typescript';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { version } = require('./package.json');
 
-const banner = `// Copyright © ${new Date().getFullYear()}-present Techassi
+const banner = `// Copyright (c) 2020-present Techassi
 // Use of this source code is governed by a MIT-style
 // license that can be found in the LICENSE file.
 // vue-youtube-iframe ${version}`;
 
 export default {
-    input: './src/index.js',
+    input: './src/index.ts',
     output: [
         {
             file: './lib/vue-youtube-iframe.esm.js',
             banner,
             format: 'esm',
-            globals: {
-                vue: 'Vue',
-            },
+            exports: 'named',
         },
         {
             file: './lib/vue-youtube-iframe.umd.js',
@@ -22,9 +23,20 @@ export default {
             banner,
             format: 'umd',
             exports: 'named',
-            globals: {
-                vue: 'Vue',
-            },
+        },
+        {
+            file: './lib/vue-youtube-iframe.cjs.js',
+            banner,
+            format: 'cjs',
+            exports: 'named',
+        },
+        {
+            file: './lib/vue-youtube-iframe.global.js',
+            banner,
+            format: 'iife',
+            exports: 'named',
         },
     ],
+    external: ['vue'],
+    plugins: [typescript()],
 };
