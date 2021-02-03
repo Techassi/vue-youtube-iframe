@@ -9,8 +9,9 @@
         "skipLibCheck": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
-        "sourceMap": true,
         "baseUrl": ".",
+        "declaration": true,
+        "declarationDir": "lib/types",
         "types": [
             "youtube"
         ],

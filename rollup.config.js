@@ -1,4 +1,4 @@
-import typescript from '@rollup/plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { version } = require('./package.json');
@@ -38,5 +38,9 @@ export default {
         },
     ],
     external: ['vue'],
-    plugins: [typescript()],
+    plugins: [
+        typescript({
+            useTsconfigDeclarationDir: true,
+        }),
+    ],
 };
