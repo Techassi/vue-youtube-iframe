@@ -2,6 +2,11 @@
 
 This plugin makes it easy to integrate the YouTube Iframe API into your Vue app. This plugin is Vue V3 compatible.
 
+## Notice
+
+⚠️ Currently rewriting this library in Typescript. This change **should not** introduce breaking changes, but if there
+are open a new issue.
+
 ## Usage
 
 ### Installation
