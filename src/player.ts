@@ -1,6 +1,6 @@
 import { defineComponent, h, nextTick } from 'vue';
 
-import { skipIfAutoplay } from './helper';
+import { seekIfAutoplay } from './helper';
 import { manager } from './manager';
 
 const player = defineComponent({
@@ -185,7 +185,7 @@ const player = defineComponent({
                     host,
                     events: {
                         onReady: (event: YT.PlayerEvent) => {
-                            skipIfAutoplay(event.target, playerParameters);
+                            seekIfAutoplay(event.target, playerParameters);
                             this.$emit('ready', event);
                         },
                         onStateChange: (event: YT.OnStateChangeEvent) => {
