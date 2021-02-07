@@ -1,5 +1,11 @@
+/**
+ * ManagerCallbackFunction defines a callback function which is used when registering a new player
+ */
 export type ManagerCallbackFunction = (factory: object, uid: string) => void;
 
+/**
+ * Manager manages multiple player instances
+ */
 export interface Manager {
     factory: object | undefined;
     players: Array<ManagerCallbackFunction>;
@@ -30,6 +36,9 @@ export interface Manager {
     runBacklog(): void;
 }
 
+/**
+ * createManager creates and returns the default manager
+ */
 export function createManager(): Manager {
     return {
         factory: undefined,

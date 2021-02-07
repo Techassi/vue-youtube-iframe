@@ -3,7 +3,9 @@
  * @param player The player instance
  * @param playerVars The player vars
  */
-export function seekIfAutoplay(player: YT.Player, playerVars: YT.PlayerVars) {
+export function seekIfAutoplay(player: YT.Player, playerVars: YT.PlayerVars): void {
+    console.log(YT);
+
     if (playerVars.autoplay != undefined && playerVars.autoplay == YT.AutoPlay.AutoPlay) {
         player.mute();
 

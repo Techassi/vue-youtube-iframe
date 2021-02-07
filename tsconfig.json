@@ -12,6 +12,8 @@
         "baseUrl": ".",
         "declaration": true,
         "declarationDir": "lib/types",
+        "removeComments": true,
+        "newLine": "lf",
         "types": [
             "youtube"
         ],

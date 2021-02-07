@@ -19,7 +19,7 @@ export default {
         },
         {
             file: './lib/vue-youtube-iframe.umd.js',
-            name: 'VueYouTubeEmbed',
+            name: 'VueYoutubeIframe',
             banner,
             format: 'umd',
             exports: 'named',
@@ -32,6 +32,7 @@ export default {
         },
         {
             file: './lib/vue-youtube-iframe.global.js',
+            name: 'VueYoutubeIframe',
             banner,
             format: 'iife',
             exports: 'named',

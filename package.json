@@ -6,24 +6,34 @@
     "module": "lib/vue-youtube-iframe.esm.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "rollup -c rollup.config.js"
+        "build": "rollup -c rollup.config.js",
+        "format": "prettier --write \"src/**/*.ts\"",
+        "lint": "eslint -c .eslintrc.js src/**",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm test && npm run lint",
+        "preversion": "npm run lint",
+        "version": "npm run format && git add -A src",
+        "postversion": "git push && git push --tags"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Techassi/vue-youtube-iframe.git"
     },
     "files": [
-        "/lib"
+        "lib/**/*"
     ],
-    "typings": "lib/index.d.ts",
+    "types": "lib/types/index.d.ts",
     "typescript": {
-        "definition": "lib/index.d.ts"
+        "definition": "lib/types/index.d.ts"
     },
     "keywords": [
         "vue",
         "youtube",
         "iframe",
-        "embed"
+        "embed",
+        "api",
+        "youtube iframe api",
+        "vue-youtube-iframe"
     ],
     "author": "Techassi",
     "license": "MIT",
@@ -32,10 +42,10 @@
     },
     "homepage": "https://github.com/Techassi/vue-youtube-iframe#readme",
     "dependencies": {
-        "vue": "^3.0.0"
+        "@types/youtube": "^0.0.41",
+        "vue": "^3.0.5"
     },
     "devDependencies": {
-        "@types/youtube": "^0.0.41",
         "@typescript-eslint/eslint-plugin": "^4.14.2",
         "@typescript-eslint/parser": "^4.14.2",
         "@vue/eslint-config-prettier": "^6.0.0",

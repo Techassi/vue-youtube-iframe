@@ -1,7 +1,5 @@
-import { App } from 'vue';
+import { Plugin } from 'vue';
 import YouTubePlayer from './player';
-declare const plugin: {
-    install: (app: App) => void;
-};
+declare const plugin: Plugin;
 export { YouTubePlayer };
 export default plugin;
