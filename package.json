@@ -1,6 +1,6 @@
 {
     "name": "@techassi/vue-youtube-iframe",
-    "version": "1.0.4",
+    "version": "1.0.3",
     "description": "This plugin makes it easy to integrate the YouTube Iframe API into your Vue app. This plugin is Vue V3 compatible.",
     "main": "lib/vue-youtube-iframe.umd.js",
     "module": "lib/vue-youtube-iframe.esm.js",
@@ -12,7 +12,7 @@
         "prepare": "npm run build",
         "prepublishOnly": "npm test && npm run lint",
         "preversion": "npm run lint",
-        "version": "npm run format && git add -A",
+        "version": "npm run format && git add .",
         "postversion": "git push && git push --tags"
     },
     "repository": {
