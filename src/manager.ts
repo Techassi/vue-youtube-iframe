@@ -1,13 +1,13 @@
 /**
  * ManagerCallbackFunction defines a callback function which is used when registering a new player
  */
-export type ManagerCallbackFunction = (factory: object, uid: string) => void;
+export type ManagerCallbackFunction = (factory: any, uid: string) => void;
 
 /**
  * Manager manages multiple player instances
  */
 export interface Manager {
-    factory: object | undefined;
+    factory: any | undefined;
     players: Array<ManagerCallbackFunction>;
     events: Record<string, string>;
     uid: number;
@@ -16,7 +16,7 @@ export interface Manager {
      * registerFactory registers the player factory
      * @param factory The underlying YT factory (usually window.YT)
      */
-    registerFactory(factory: YT.Player): void;
+    registerFactory(factory: any): void;
 
     /**
      * registerEvents registers all player state events
@@ -45,7 +45,7 @@ export function createManager(): Manager {
         players: [],
         events: {},
         uid: 0,
-        registerFactory(factory: object): void {
+        registerFactory(factory: any): void {
             this.factory = factory;
         },
         registerEvents(): void {
