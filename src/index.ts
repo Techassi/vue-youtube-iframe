@@ -1,10 +1,10 @@
 import { App, Plugin } from 'vue';
 
 import { manager } from './manager';
-import YouTubePlayer from './player';
+import PlayerComponent from './component';
 
-const install = (app: App): void => {
-    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+const plugin: Plugin = {
+    install(app: App): void {
         const tag = document.createElement('script');
         tag.src = 'https://www.youtube.com/player_api';
 
@@ -14,7 +14,7 @@ const install = (app: App): void => {
         if (firstScriptTag.parentNode != null) {
             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-            app.component('youtube-iframe', YouTubePlayer);
+            app.component('youtube-iframe', PlayerComponent);
 
             (window as any).onYouTubeIframeAPIReady = () => {
                 console.log(typeof window.YT);
@@ -24,12 +24,8 @@ const install = (app: App): void => {
                 manager.runBacklog();
             };
         }
-    }
+    },
 };
 
-const plugin: Plugin = {
-    install,
-};
-
-export { YouTubePlayer };
+export { PlayerComponent as YouTubePlayer };
 export default plugin;

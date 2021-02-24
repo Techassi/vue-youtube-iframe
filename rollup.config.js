@@ -2,7 +2,6 @@ import typescript from 'rollup-plugin-typescript2';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { version } = require('./package.json');
-
 const now = new Date();
 
 const banner = `// Copyright (c) 2020-present Techassi
@@ -18,6 +17,9 @@ export default {
             banner,
             format: 'esm',
             exports: 'named',
+            globals: {
+                vue: 'vue',
+            },
         },
         {
             file: './lib/vue-youtube-iframe.umd.js',
@@ -25,12 +27,18 @@ export default {
             banner,
             format: 'umd',
             exports: 'named',
+            globals: {
+                vue: 'vue',
+            },
         },
         {
             file: './lib/vue-youtube-iframe.cjs.js',
             banner,
             format: 'cjs',
             exports: 'named',
+            globals: {
+                vue: 'vue',
+            },
         },
         {
             file: './lib/vue-youtube-iframe.global.js',
@@ -38,6 +46,9 @@ export default {
             banner,
             format: 'iife',
             exports: 'named',
+            globals: {
+                vue: 'vue',
+            },
         },
     ],
     external: ['vue'],

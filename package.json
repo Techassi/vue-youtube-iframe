@@ -9,10 +9,10 @@
         "build": "rollup -c rollup.config.js",
         "format": "prettier --write \"src/**/*.ts\"",
         "lint": "eslint -c .eslintrc.js src/**",
-        "prepare": "npm run build",
-        "prepublishOnly": "npm test && npm run lint",
-        "preversion": "npm run lint",
-        "version": "npm run format && git add .",
+        "vp": "npm version prerelease",
+        "vpp": "npm version prerelease && npm publish",
+        "preversion": "npm run test && npm run lint && npm run format",
+        "version": "npm run build && git add -A lib",
         "postversion": "git push && git push --tags"
     },
     "repository": {
