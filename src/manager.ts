@@ -78,4 +78,5 @@ export function createManager(): Manager {
     };
 }
 
-export const manager = createManager();
+const manager = createManager();
+export default manager;
