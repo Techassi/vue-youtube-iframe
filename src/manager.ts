@@ -4,28 +4,16 @@
 export type RegisterFunc = (factory: any, uid: string) => void;
 
 /**
- * EventsTree defines a lookup table for events emitted by the youtube player
- */
-export interface EventsTree {
-    [key: string]: string;
-}
-
-/**
  * Manager keeps track of player events and player instances
  */
 export class Manager {
     private players!: Array<RegisterFunc>;
-    private events!: EventsTree;
     private factory!: any;
     private uid!: number;
 
     public constructor() {
-        this.events = {};
-        this.events[YT.PlayerState.ENDED] = 'ended';
-        this.events[YT.PlayerState.PLAYING] = 'playing';
-        this.events[YT.PlayerState.PAUSED] = 'paused';
-        this.events[YT.PlayerState.BUFFERING] = 'buffering';
-        this.events[YT.PlayerState.CUED] = 'cued';
+        this.players = new Array<RegisterFunc>();
+        this.uid = 0;
     }
 
     public registerFactory(factory: any): void {
@@ -52,10 +40,6 @@ export class Manager {
 
             this.players = [];
         });
-    }
-
-    public getEvent(key: string): string {
-        return this.events[key];
     }
 }
 

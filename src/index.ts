@@ -1,6 +1,6 @@
 import { App, Plugin } from 'vue';
 
-import PlayerComponent from './component';
+import Player from './player';
 import manager from './manager';
 
 const plugin: Plugin = {
@@ -12,7 +12,7 @@ const plugin: Plugin = {
         if (firstScriptTag.parentNode != null) {
             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-            app.component('youtube-iframe', PlayerComponent);
+            app.component('youtube-iframe', Player);
 
             (window as any).onYouTubeIframeAPIReady = () => {
                 manager.registerFactory((window.YT as unknown) as YT.Player);
@@ -22,5 +22,5 @@ const plugin: Plugin = {
     },
 };
 
-export { PlayerComponent as YouTubePlayer };
+export { Player };
 export default plugin;
