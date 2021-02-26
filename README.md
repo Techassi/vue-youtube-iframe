@@ -13,7 +13,9 @@ YouTube Iframe API described [here](https://developers.google.com/youtube/iframe
 ### New features
 
 -   Support for typings across the board. In detail these are type declarations for the plugin itself as well as YouTube
-    Iframe specific typings under the namespace `YT`.
+    Iframe specific typings under the namespace `YT` from `@types/youtube` (See
+    [here](https://www.npmjs.com/package/@types/youtube) and
+    [here](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/youtube)).
 -   API complete methods for pausing, stoping and queueing videos (See
     [here](https://developers.google.com/youtube/iframe_api_reference#Functions))
 
