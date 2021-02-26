@@ -42,7 +42,7 @@ export default class Player extends Vue.with(Props) {
                         },
                         onStateChange: (event: YT.OnStateChangeEvent) => {
                             if (event.data !== -1) {
-                                this.$emit(manager.events[event.data], event);
+                                this.$emit(manager.getEvent(event.data), event);
                             }
                         },
                         onError: (event: YT.OnErrorEvent) => {

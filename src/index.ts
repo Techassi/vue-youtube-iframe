@@ -1,7 +1,7 @@
 import { App, Plugin } from 'vue';
 
-import manager from './manager';
 import PlayerComponent from './component';
+import manager from './manager';
 
 const plugin: Plugin = {
     install(app: App): void {
@@ -16,8 +16,7 @@ const plugin: Plugin = {
 
             (window as any).onYouTubeIframeAPIReady = () => {
                 manager.registerFactory((window.YT as unknown) as YT.Player);
-                manager.registerEvents();
-                manager.runBacklog();
+                manager.runQueue();
             };
         }
     },

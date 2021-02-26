@@ -10,7 +10,7 @@
         "format": "prettier --write \"src/**/*.ts\"",
         "lint": "eslint -c .eslintrc.js src/**",
         "vp": "npm version prerelease",
-        "vpp": "npm version prerelease && npm publish",
+        "vpp": "npm version prerelease && npm publish --tag beta",
         "preversion": "npm run test && npm run lint && npm run format",
         "version": "npm run build && git add .",
         "postversion": "git push && git push --tags"

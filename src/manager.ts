@@ -1,82 +1,72 @@
 /**
- * ManagerCallbackFunction defines a callback function which is used when registering a new player
+ * RegisterFunc defines a callback function which is used when registering a new player
  */
-export type ManagerCallbackFunction = (factory: any, uid: string) => void;
+export type RegisterFunc = (factory: any, uid: string) => void;
 
 /**
- * Manager manages multiple player instances
+ * EventsTree defines a lookup table for events emitted by the youtube player
  */
-export interface Manager {
-    factory: any | undefined;
-    players: Array<ManagerCallbackFunction>;
-    events: Record<string, string>;
-    uid: number;
+export interface EventsTree {
+    [key: string]: string;
+}
 
-    /**
-     * registerFactory registers the player factory
-     * @param factory The underlying YT factory (usually window.YT)
-     */
-    registerFactory(factory: any): void;
+/**
+ * Manager keeps track of player events and player instances
+ */
+export class Manager {
+    private players!: Array<RegisterFunc>;
+    private events!: EventsTree;
+    private factory!: any;
+    private uid!: number;
 
-    /**
-     * registerEvents registers all player state events
-     */
-    registerEvents(): void;
+    public constructor() {
+        this.events = {};
+        this.events[YT.PlayerState.ENDED] = 'ended';
+        this.events[YT.PlayerState.PLAYING] = 'playing';
+        this.events[YT.PlayerState.PAUSED] = 'paused';
+        this.events[YT.PlayerState.BUFFERING] = 'buffering';
+        this.events[YT.PlayerState.CUED] = 'cued';
+    }
 
-    /**
-     * register registers a new player via the manager
-     * @param callback the callback function executed when the player gets loaded into the component
-     */
-    register(callback: ManagerCallbackFunction): void;
+    public registerFactory(factory: any): void {
+        this.factory = factory;
+    }
 
-    /**
-     * runBacklog iterates over registered players, which were unable to initiate because the YouTube API script wasn't
-     * ready yet
-     */
-    runBacklog(): void;
+    public register(callback: RegisterFunc): void {
+        this.uid++;
+
+        if (this.factory != undefined) {
+            callback(this.factory, `vue-youtube-iframe-${this.uid}`);
+            return;
+        }
+
+        this.players.push(callback);
+    }
+
+    public runQueue(): void {
+        this.players.forEach((callback) => {
+            if (this.factory != undefined) {
+                this.uid++;
+                callback(this.factory, `vue-youtube-iframe-${this.uid}`);
+            }
+
+            this.players = [];
+        });
+    }
+
+    public getEvent(key: string): string {
+        return this.events[key];
+    }
 }
 
 /**
  * createManager creates and returns the default manager
  */
 export function createManager(): Manager {
-    return {
-        factory: undefined,
-        players: [],
-        events: {},
-        uid: 0,
-        registerFactory(factory: any): void {
-            this.factory = factory;
-        },
-        registerEvents(): void {
-            this.events[YT.PlayerState.ENDED] = 'ended';
-            this.events[YT.PlayerState.PLAYING] = 'playing';
-            this.events[YT.PlayerState.PAUSED] = 'paused';
-            this.events[YT.PlayerState.BUFFERING] = 'buffering';
-            this.events[YT.PlayerState.CUED] = 'cued';
-        },
-        register(callback: ManagerCallbackFunction): void {
-            this.uid++;
-
-            if (this.factory != undefined) {
-                callback(this.factory, `vue-youtube-iframe-${this.uid}`);
-                return;
-            }
-
-            this.players.push(callback);
-        },
-        runBacklog(): void {
-            this.players.forEach((callback) => {
-                if (this.factory != undefined) {
-                    this.uid++;
-                    callback(this.factory, `vue-youtube-iframe-${this.uid}`);
-                }
-
-                this.players = [];
-            });
-        },
-    };
+    return new Manager();
 }
 
 const manager = createManager();
+Object.freeze(manager);
+
 export default manager;
