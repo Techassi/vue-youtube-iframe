@@ -108,7 +108,7 @@ For the available player parameters see [here](https://developers.google.com/you
 ### Available Events
 
 ```
-@ready, @error, @stateChange
+@ready, @error, @state-change
 ```
 
 For detailed event information check [here](https://developers.google.com/youtube/iframe_api_reference#Events)
