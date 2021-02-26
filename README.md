@@ -4,9 +4,18 @@ This plugin makes it easy to integrate the YouTube Iframe API into your Vue app.
 
 ## Notice
 
-⚠️ Currently rewriting this library in Typescript. This change **should not** introduce breaking changes, but if there
-are open a new issue. The `1.0.3` version is still based on the previous JS based source code. The upcoming version
-`1.0.4` is based on the Typescript rewrite.
+⚠️ The new version `1.0.4` (rewritten in Typescript) introduces the following breaking change:
+
+The events `@ended`, `@playing`, `@paused`, `@buffering` and `@cued` will no longer be emitted. Instead you should now
+use `@state-change` to catch the events when the player state changes. This better represents the behaviour of the
+YouTube Iframe API described [here](https://developers.google.com/youtube/iframe_api_reference#Events).
+
+### New features
+
+-   Support for typings across the board. In detail these are type declarations for the plugin itself as well as YouTube
+    Iframe specific typings under the namespace `YT`.
+-   API complete methods for pausing, stoping and queueing videos (See
+    [here](https://developers.google.com/youtube/iframe_api_reference#Functions))
 
 ## Usage
 
@@ -24,15 +33,15 @@ yarn add @techassi/vue-youtube-iframe
 
 ### Basic usage
 
-`main.js`
+`main.js` / `main.ts`
 
 ```js
 import { createApp } from 'vue';
 import App from './App.vue';
 
-import VueYouTubeIframe from '@techassi/vue-youtube-iframe';
+import YoutubeIframe from '@techassi/vue-youtube-iframe';
 
-createApp(App).use(VueYouTubeIframe).mount('#app');
+createApp(App).use(YoutubeIframe).mount('#app');
 ```
 
 `YourComponent.vue`
@@ -60,7 +69,31 @@ createApp(App).use(VueYouTubeIframe).mount('#app');
 </template>
 ```
 
-#### Available props
+### Typings
+
+Vue currently doesn't support typings when using a component in a SFC and accessing it via `ref` / `this.$refs`. There
+is a way to bring in typings when using `ref`. Please note: This isn't the most elegant solution.
+
+```vue
+<template>
+    <youtube-iframe :video-id="YT_VIDEO_ID" ref="yt"></youtube-iframe>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { Player } from '@techassi/vue-youtube-iframe';
+
+export default defineComponent({
+    name: 'App',
+    mounted() {
+        const player = this.$refs.yt as typeof Player;
+        // Variable player now has typings
+    },
+});
+</script>
+```
+
+### Available props
 
 -   `:videoId / :video-id`: Specify the YT video id (e.g. `dQw4w9WgXcQ`)
 -   `:playerWidth / :player-width`: Specify the player's width in pixels
@@ -68,14 +101,14 @@ createApp(App).use(VueYouTubeIframe).mount('#app');
 -   `:noCookie / :no-cookie`: If set to `true` the host will be set to `https://www.youtube-nocookie.com`
 -   `:playerParameters / :player-parameters`: Set player parameters, see [here](#available-player-parameters)
 
-#### Available player parameters
+### Available player parameters
 
 For the available player parameters see [here](https://developers.google.com/youtube/player_parameters#Parameters)
 
-#### Available Events
+### Available Events
 
 ```
-@ready, @error, @ended, @playing, @paused, @buffering and @cued
+@ready, @error, @stateChange
 ```
 
 For detailed event information check [here](https://developers.google.com/youtube/iframe_api_reference#Events)

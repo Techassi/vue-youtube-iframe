@@ -33,7 +33,7 @@ const player = defineComponent({
             default: false,
         },
     },
-    emits: ['ready', 'error', 'stateChange'],
+    emits: ['ready', 'error', 'state-change'],
     data() {
         return {
             elementId: '',
@@ -64,7 +64,7 @@ const player = defineComponent({
                         },
                         onStateChange: (event: YT.OnStateChangeEvent) => {
                             if (event.data !== -1) {
-                                this.$emit('stateChange', event);
+                                this.$emit('state-change', event);
                             }
                         },
                         onError: (event: YT.OnErrorEvent) => {

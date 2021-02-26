@@ -51,6 +51,4 @@ export function createManager(): Manager {
 }
 
 const manager = createManager();
-Object.freeze(manager);
-
 export default manager;
