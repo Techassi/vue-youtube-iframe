@@ -44,22 +44,22 @@ const player = defineComponent({
         return h('div', { class: ['vue-youtube-iframe'] }, [h('div', { id: this.elementId })]);
     },
     mounted() {
-        const { playerHeight, playerWidth, playerParameters, videoId } = this;
-
         manager.register((factory, uid) => {
             const host = this.noCookie ? HOST_NO_COOKIE : HOST_COOKIE;
             this.elementId = uid;
 
             nextTick().then(() => {
                 this.playerInstance = createPlayer(factory, this.elementId, {
-                    width: playerWidth,
-                    height: playerHeight,
-                    ...playerParameters,
-                    videoId,
+                    width: this.playerWidth,
+                    height: this.playerHeight,
+                    playerVars: {
+                        ...this.playerParameters,
+                    },
+                    videoId: this.videoId,
                     host,
                     events: {
                         onReady: (event: YT.PlayerEvent) => {
-                            seekIfAutoplay(event.target, playerParameters);
+                            seekIfAutoplay(event.target, this.playerParameters);
                             this.$emit('ready', event);
                         },
                         onStateChange: (event: YT.OnStateChangeEvent) => {

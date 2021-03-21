@@ -4,7 +4,7 @@ This plugin makes it easy to integrate the YouTube Iframe API into your Vue app.
 
 ## Notice
 
-⚠️ The new version `1.0.5` (rewritten in Typescript) introduces the following breaking change:
+⚠️ The new version `1.0.6` (rewritten in Typescript) introduces the following breaking change:
 
 The events `@ended`, `@playing`, `@paused`, `@buffering` and `@cued` will no longer be emitted. Instead you should now
 use `@state-change` to catch the events when the player state changes. This better represents the behaviour of the
