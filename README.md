@@ -10,6 +10,15 @@ The events `@ended`, `@playing`, `@paused`, `@buffering` and `@cued` will no lon
 use `@state-change` to catch the events when the player state changes. This better represents the behaviour of the
 YouTube Iframe API described [here](https://developers.google.com/youtube/iframe_api_reference#Events).
 
+## Upcoming version 1.0.7
+
+Planned features for the upcoming `1.0.7` release are:
+
+-   Video ID reactivity, see [#3](https://github.com/Techassi/vue-youtube-iframe/issues/3)
+-   Vue 2 support via `vue-demi` [#4](https://github.com/Techassi/vue-youtube-iframe/issues/4)
+-   Add composable functions
+-   Maybe remove `types/youtube` dependency by defining own types
+
 ### New features
 
 -   Support for typings across the board. In detail these are type declarations for the plugin itself as well as YouTube
