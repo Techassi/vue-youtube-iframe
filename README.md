@@ -2,22 +2,13 @@
 
 This plugin makes it easy to integrate the YouTube Iframe API into your Vue app. This plugin is Vue V3 compatible.
 
-## Notice
+## ⚠️ Notice
 
-⚠️ The new version `1.0.6` (rewritten in Typescript) introduces the following breaking change:
+The new version `1.0.6` (rewritten in Typescript) introduces the following breaking change:
 
 The events `@ended`, `@playing`, `@paused`, `@buffering` and `@cued` will no longer be emitted. Instead you should now
 use `@state-change` to catch the events when the player state changes. This better represents the behaviour of the
 YouTube Iframe API described [here](https://developers.google.com/youtube/iframe_api_reference#Events).
-
-## Upcoming version 1.0.7
-
-Planned features for the upcoming `1.0.7` release are:
-
--   Video ID reactivity, see [#3](https://github.com/Techassi/vue-youtube-iframe/issues/3)
--   Vue 2 support via `vue-demi` [#4](https://github.com/Techassi/vue-youtube-iframe/issues/4)
--   Add composable functions
--   Maybe remove `types/youtube` dependency by defining own types
 
 ### New features
 
@@ -27,6 +18,15 @@ Planned features for the upcoming `1.0.7` release are:
     [here](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/youtube)).
 -   API complete methods for pausing, stoping and queueing videos (See
     [here](https://developers.google.com/youtube/iframe_api_reference#Functions))
+
+## 🧪 Upcoming version 1.0.7
+
+Planned features for the upcoming `1.0.7` release are:
+
+-   Video ID reactivity, see [#3](https://github.com/Techassi/vue-youtube-iframe/issues/3)
+-   Vue 2 support via `vue-demi` [#4](https://github.com/Techassi/vue-youtube-iframe/issues/4)
+-   Add composable functions
+-   Maybe remove `types/youtube` dependency by defining own types
 
 ## Usage
 
