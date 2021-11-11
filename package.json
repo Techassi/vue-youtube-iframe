@@ -1,6 +1,33 @@
 {
     "name": "vue-youtube-iframe-test",
-    "version": "0.0.0",
+    "version": "1.0.6",
+    "description": "This plugin makes it easy to integrate the YouTube Iframe API into your Vue 3 application",
+    "author": "Techassi",
+    "keywords": [
+        "vue",
+        "youtube",
+        "iframe",
+        "embed",
+        "api",
+        "youtube iframe api",
+        "vue-youtube-iframe"
+    ],
+    "bugs": {
+        "url": "https://github.com/Techassi/vue-youtube-iframe/issues"
+    },
+    "homepage": "https://github.com/Techassi/vue-youtube-iframe#readme",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/vue-youtube-iframe.umd.js",
+    "module": "./dist/vue-youtube-iframe.es.js",
+    "exports": {
+        ".": {
+            "import": "./dist/vue-youtube-iframe.es.js",
+            "require": "./dist/vue-youtube-iframe.umd.js"
+        }
+    },
+    "types": "./dist/types/index.d.ts",
     "scripts": {
         "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
         "build": "vue-tsc --noEmit && vite build",
