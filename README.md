@@ -27,6 +27,10 @@ Planned features for the upcoming `1.0.7` release are:
 -   Vue 2 support via `vue-demi` [#4](https://github.com/Techassi/vue-youtube-iframe/issues/4)
 -   Add composable functions
 -   Maybe remove `types/youtube` dependency by defining own types
+-   Add support for new events, see [here](https://developers.google.com/youtube/iframe_api_reference#Events)
+    -    onPlaybackQualityChange
+    -    onPlaybackRateChange
+    -    onApiChange
 
 ## Usage
 
