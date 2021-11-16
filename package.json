@@ -1,5 +1,5 @@
 {
-    "name": "vue-youtube-iframe-test",
+    "name": "@techassi/vue-youtube-iframe",
     "version": "1.0.6",
     "description": "This plugin makes it easy to integrate the YouTube Iframe API into your Vue 3 application",
     "author": "Techassi",

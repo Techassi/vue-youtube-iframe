@@ -33,7 +33,7 @@ const player = defineComponent({
             default: false,
         },
     },
-    emits: ['ready', 'error', 'state-change'],
+    emits: ['ready', 'error', 'state-change', 'playback-quality-change', 'playback-rate-change', 'api-change'],
     data() {
         return {
             elementId: '',
@@ -69,6 +69,15 @@ const player = defineComponent({
                         },
                         onError: (event: YT.OnErrorEvent) => {
                             this.$emit('error', event);
+                        },
+                        onPlaybackQualityChange: (event: YT.OnPlaybackQualityChangeEvent) => {
+                            this.$emit('playback-quality-change', event);
+                        },
+                        onPlaybackRateChange: (event: YT.OnPlaybackRateChangeEvent) => {
+                            this.$emit('playback-rate-change', event);
+                        },
+                        onApiChange: (event: YT.PlayerEvent) => {
+                            this.$emit('api-change', event);
                         },
                     },
                 });
