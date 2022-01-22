@@ -39,7 +39,7 @@
         "vue": "^3.2.16"
     },
     "devDependencies": {
-        "@techassi/eslint-config": "^0.0.3",
+        "@techassi/eslint-config": "^0.0.4",
         "@types/node": "^16.11.7",
         "@types/youtube": "^0.0.46",
         "@vitejs/plugin-vue": "^1.9.3",
