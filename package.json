@@ -29,18 +29,21 @@
     },
     "types": "./dist/types/index.d.ts",
     "scripts": {
-        "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+        "preinstall": "npx only-allow pnpm",
+        "lint": "eslint --ext .js,.vue,.ts .",
+        "lint:fix": "pnpm lint -- --fix",
         "build": "vue-tsc --noEmit && vite build",
-        "format": "prettier .  --write",
         "dev": "vite"
     },
     "dependencies": {
         "vue": "^3.2.16"
     },
     "devDependencies": {
+        "@techassi/eslint-config": "^0.0.3",
         "@types/node": "^16.11.7",
         "@types/youtube": "^0.0.46",
         "@vitejs/plugin-vue": "^1.9.3",
+        "eslint": "^8.7.0",
         "typescript": "^4.4.3",
         "vite": "^2.6.4",
         "vite-plugin-dts": "^0.9.4",
