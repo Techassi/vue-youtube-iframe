@@ -21,17 +21,15 @@ YouTube Iframe API described [here](https://developers.google.com/youtube/iframe
 
 ## 🧪 Upcoming version 1.0.7
 
-Planned features for the upcoming `1.0.7` release are:
+🎉 Version `1.0.7` is currently in progress. Planned features for the upcoming release are:
 
-- [ ] Video ID reactivity, see [#3](https://github.com/Techassi/vue-youtube-iframe/issues/3)
-- [ ] Vue 2 support via `vue-demi` [#4](https://github.com/Techassi/vue-youtube-iframe/issues/4)
-- [ ] Add composable functions
-- [ ] Maybe remove `types/youtube` dependency by defining own types
 - [x] Add support for new events, see [here](https://developers.google.com/youtube/iframe_api_reference#Events)
-    -    onPlaybackQualityChange
-    -    onPlaybackRateChange
-    -    onApiChange
-- [x] Switch to Vite toolchain 
+- [x] Switch to Vite toolchain
+- [ ] [WIP] Vue 2 support via `vue-demi` [#4](https://github.com/Techassi/vue-youtube-iframe/issues/4)
+- [ ] [WIP] Maybe remove `types/youtube` dependency by defining own types
+- [ ] [WIP] Add composable functions
+- [ ] Video ID reactivity, see [#3](https://github.com/Techassi/vue-youtube-iframe/issues/3)
+- [ ] Write migration and new usage guide
 
 ## Usage
 
