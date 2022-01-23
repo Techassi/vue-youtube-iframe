@@ -68,7 +68,6 @@ const player = defineComponent({
             onStateChange: (event: YT.OnStateChangeEvent) => {
               if (event.data !== -1)
                 this.$emit('state-change', event);
-
             },
             onError: (event: YT.OnErrorEvent) => {
               this.$emit('error', event);
@@ -92,21 +91,21 @@ const player = defineComponent({
   },
   methods: {
     /**
-         * cueVideoById queues a video by ID
-         * @param videoId YouTube video ID
-         * @param startSeconds Time in seconds from which the video should start playing
-         * @param suggestedQuality Suggested video player quality
-         */
+     * cueVideoById queues a video by ID
+     * @param videoId YouTube video ID
+     * @param startSeconds Time in seconds from which the video should start playing
+     * @param suggestedQuality Suggested video player quality
+     */
     cueVideoById(videoId: string, startSeconds?: number, suggestedQuality?: YT.SuggestedVideoQuality): void {
       this.playerInstance.cueVideoById(videoId, startSeconds, suggestedQuality);
     },
 
     /**
-         * loadVideoById loads a video by ID
-         * @param videoId YouTube video ID
-         * @param startSeconds Time in seconds from which the video should start playing
-         * @param suggestedQuality Suggested video player quality
-         */
+     * loadVideoById loads a video by ID
+     * @param videoId YouTube video ID
+     * @param startSeconds Time in seconds from which the video should start playing
+     * @param suggestedQuality Suggested video player quality
+     */
     loadVideoById(videoId: string, startSeconds?: number, suggestedQuality?: YT.SuggestedVideoQuality): void {
       this.playerInstance.loadVideoById(videoId, startSeconds, suggestedQuality);
     },
