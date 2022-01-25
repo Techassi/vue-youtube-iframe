@@ -37,11 +37,16 @@ yarn install @vue-youtube/core
 
 ```vue
 <script setup lang="ts">
-const player = ref();
-const { onReady } = usePlayer('dQw4w9WgXcQ', player, {
-  width: 1920,
-  height: 1080,
-});
+  const player = ref();
+
+  const { onReady } = usePlayer('dQw4w9WgXcQ', player, {
+    width: 1920,
+    height: 1080,
+  });
+
+  onReady((event) => {
+    console.log('Ready!')
+  });
 </script>
 
 <template>
@@ -58,9 +63,20 @@ import { createApp } from 'vue';
 import App from './App.vue';
 
 import { createManager } from '@vue-youtube/core';
-const manager = createManager();
 
-createApp(App).use(manager).mount('#app');
+createApp(App).use(createManager()).mount('#app');
+```
+
+`component.vue`
+
+```vue
+<script setup lang="ts">
+  import { YoutubeIframe } from '@vue-youtube/component';
+</script>
+
+<template>
+  <youtube-iframe video-id="dQw4w9WgXcQ" />
+</template>
 ```
 
 ### Available props
