@@ -4,32 +4,7 @@ This plugin makes it easy to integrate the YouTube Iframe API into your Vue app.
 
 ## ⚠️ Notice
 
-The new version `1.0.6` (rewritten in Typescript) introduces the following breaking change:
-
-The events `@ended`, `@playing`, `@paused`, `@buffering` and `@cued` will no longer be emitted. Instead you should now
-use `@state-change` to catch the events when the player state changes. This better represents the behaviour of the
-YouTube Iframe API described [here](https://developers.google.com/youtube/iframe_api_reference#Events).
-
-### New features
-
--   Support for typings across the board. In detail these are type declarations for the plugin itself as well as YouTube
-    Iframe specific typings under the namespace `YT` from `@types/youtube` (See
-    [here](https://www.npmjs.com/package/@types/youtube) and
-    [here](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/youtube)).
--   API complete methods for pausing, stoping and queueing videos (See
-    [here](https://developers.google.com/youtube/iframe_api_reference#Functions))
-
-## 🧪 Upcoming version 1.0.7
-
-🎉 Version `1.0.7` is currently in progress. Planned features for the upcoming release are:
-
-- [x] Add support for new events, see [here](https://developers.google.com/youtube/iframe_api_reference#Events)
-- [x] Switch to Vite toolchain
-- [ ] [WIP] Vue 2 support via `vue-demi` [#4](https://github.com/Techassi/vue-youtube-iframe/issues/4)
-- [ ] [WIP] Maybe remove `types/youtube` dependency by defining own types
-- [ ] [WIP] Add composable functions
-- [ ] Video ID reactivity, see [#3](https://github.com/Techassi/vue-youtube-iframe/issues/3)
-- [ ] Write migration and new usage guide
+This plugin will be deprecated on the **Aug 01, 2022**. Please use the new and improved [@vue-youtube/core](https://github.com/vue-youtube/vue-youtube) plugin.
 
 ## Usage
 
@@ -126,13 +101,3 @@ For the available player parameters see [here](https://developers.google.com/you
 ```
 
 For detailed event information check [here](https://developers.google.com/youtube/iframe_api_reference#Events)
-
-## Contributing / Building
-
-Contributions and pull request are welcome!
-
-```shell
-cd vue-youtube-iframe
-yarn install / npm install
-yarn run build / npm run build
-```
