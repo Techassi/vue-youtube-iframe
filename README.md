@@ -1,10 +1,10 @@
+# ⚠️ Notice
+
+This plugin is deprecated. Please use the new and improved [@vue-youtube/core](https://github.com/vue-youtube/vue-youtube) plugin.
+
 # vue-youtube-iframe
 
 This plugin makes it easy to integrate the YouTube Iframe API into your Vue app. This plugin is Vue V3 compatible.
-
-## ⚠️ Notice
-
-This plugin will be deprecated on the **Aug 01, 2022**. Please use the new and improved [@vue-youtube/core](https://github.com/vue-youtube/vue-youtube) plugin.
 
 ## Usage
 
